@@ -1,0 +1,61 @@
+<div class="post-card">
+    <div class="post-detail">
+        <div class="header">
+            <p>{{this.post.postId}}</p>
+            <h1>{{post.title | uppercase }}</h1>
+        </div>
+        <div class="content">
+            <h2>Post Content</h2>
+            <p>{{post.content}}</p>
+        </div>
+        <div class="footer">
+            <div>
+                <h2>Category</h2>
+                <p>{{categories[post.categoryId - 1].name}}</p>
+            </div>
+            <div>
+                <h2>Date</h2>
+                <p>{{post.creationDate}}</p>
+            </div>
+            <div>
+                <h2>Author Name / User Id</h2>
+                <p>{{users[post.userId - 1].username}}</p>
+                <p>userId: {{post.userId}}</p>
+            </div>
+            <div>
+                <h2>View Count</h2>
+                <p>{{post.viewCount}}</p>
+            </div>
+            <div>
+                <h2>Is Published</h2>
+                <p>{{post.isPublished}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button (click)="handleEditClick()" type="button">Edit</button>
+<button (click)="handleDeleteClick()" type="button">Delete</button>
+
+<form *ngIf="editMode">
+    <label for="title">Title</label>
+    <input type="text" [(ngModel)]="post.title" name= "title" >
+    <label for="content">Content</label>
+    <input type="content" [(ngModel)]="post.content" name= "content" >
+    <label for="creationDate">Creation Date</label>
+    <input type="date" [(ngModel)]="post.creationDate" name= "creationDate" >
+    <label for="isPublished">Published State</label>
+    <select [(ngModel)]="post.isPublished" name="isPublished">
+        <option [value]="true"> Active </option>
+        <option [value]="false">Passive</option>
+    </select>
+    <label for="user">User</label>
+    <select [(ngModel)]="post.userId" name="user">
+        <option *ngFor="let user of users" [value]="user.userId">{{user.username}}</option>
+    </select>
+    <div>
+        <button (click)="handleSaveClick()" type="button">Save</button>
+    </div>
+</form>
+
+<button [routerLink]="'/postlist'">Return Post List</button>

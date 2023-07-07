@@ -1,0 +1,23 @@
+<div class="comment-card">
+    <div class="comment-detail">
+        <div class="header">
+            <p>Comment ID: {{comment.commentId}}</p>
+            <p>Post ID: {{comment.postId}}</p>
+            <p>User ID: {{comment.userId}}</p>
+        </div>
+        <div class="content">
+            <h2>Content</h2>
+            <p>{{comment.comment}}</p>
+        </div>
+        <div class="footer">
+            <div>
+                <h2>Creation Date</h2>
+                <p>{{comment.creationDate}}</p>
+                <h2>Is Confirmed</h2>
+                <p>{{comment.isConfirmed}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" routerLink="/commentlist">Return Comment List</button>
