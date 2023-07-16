@@ -1,21 +1,22 @@
 <table class="table-container">
-    <thead>
+    <thead class="table-head">
         <tr>
-            <th>USERID</th>
+            <th>USER ID</th>
             <th>USERNAME</th>
-            <th>EMAİL</th>
+            <th>EMAIL</th>
             <th>CREATİONDATE</th>
-            <th>İSACTİVE</th>
+            <th>İS ACTİVE</th>
+            <th>EDIT / DELETE </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-body">
         <tr *ngFor="let item of users">
             <td>{{item.userId}}</td>
             <td>{{item.username | uppercase}}</td>
             <td>{{item.email}}</td>
             <td>{{item.creationDate | date }}</td>
             <td>{{item.isActive}}</td>
-            <td>
+            <td class="buttons">
                 <app-button [buttonText] = "'Delete'" [id]= "item.userId" (onButtonClick)= "handleDeleteClick($event)" >
                 </app-button>
                 <app-button [buttonText]="'Edit'" [id]= "item.userId" (onButtonClick)="handleEditClick($event)">
@@ -23,7 +24,8 @@
             </td>
         </tr>
     </tbody>
-</table> <br> <hr>
+</table> 
+
 
 <a routerLink="/useradd"><button>Add User</button></a>
 

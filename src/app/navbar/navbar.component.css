@@ -2,22 +2,48 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--bgColor);
+    
     
 }
 
-.right-nav {
+.right-nav,
+.left-nav {
     display: flex;
+    align-items: center;
     gap: 10px;
+    font-size: 20px;
+    
+}
+
+.left-nav > a {
+    font-size: 20px;
+    font-family: var(--secondaryFont);
+    
 }
 
 a {
      text-decoration: none;
+    
+     padding: 10px;
+     background-color: var(--primaryColor);
+     border-radius: 20px;
+     margin: 10px;
+     font-family: var(--primaryFont);
+     color: black;
+
 }
 
-.right-nav>:first-child {
-    color: blue;
+.right-nav > a:hover{
+    background-color: var(--secondaryColor);
+    color: var(--primaryColor);
+    
+    
 }
 
-.right-nav>:first-child:hover {
-    color: red;
+.right-nav > a:focus{
+    transition: all 0.2s;
+    transform: scale(1.1);
 }
+
+
